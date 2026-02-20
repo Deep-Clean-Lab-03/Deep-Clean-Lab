@@ -22,20 +22,28 @@
             scroll-behavior: smooth;
         }
 
-        /* --- LOGO SVG DISEÑADO CON CÓDIGO --- */
-        .logo-container {
-            margin-bottom: 20px;
+        /* --- LOGO SVG INTEGRADO EN EL HEADER --- */
+        .logo-svg {
+            position: absolute; /* Para colocarlo arriba a la izquierda */
+            top: 30px;
+            left: 30px;
+            width: 80px; /* Tamaño del logo */
+            height: 80px;
         }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO SECTION CON IMAGEN DE FONDO --- */
         header {
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: radial-gradient(circle at center, #1a1a1d 0%, #0a0a0c 100%);
             text-align: center;
             padding: 20px;
+            /* IMAGEN DE FONDO APLICADA AQUÍ */
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1582239414217-0f9c2d768140?q=80&w=2070&auto=format&fit=crop') no-repeat center center;
+            background-size: cover;
+            position: relative; /* Necesario para posicionar el logo SVG */
         }
 
         .hero-content h1 {
@@ -49,9 +57,10 @@
 
         .tagline {
             letter-spacing: 4px;
-            color: #888;
+            color: #eee; /* Más claro para verse sobre la imagen */
             font-weight: 300;
             font-size: 0.9rem;
+            margin-bottom: 20px;
         }
 
         /* --- SECCIÓN SOBRE NOSOTROS --- */
@@ -66,6 +75,7 @@
 
         .about-text { flex: 1; min-width: 300px; }
         .about-text h2 { font-family: 'Orbitron', sans-serif; color: var(--primary); font-size: 2rem; }
+        .about-text p { color: #ccc; } /* Texto más claro para esta sección */
 
         /* --- SERVICIOS (SIN BLINDAJE) --- */
         .services {
@@ -94,6 +104,7 @@
 
         .s-card i { font-size: 2.8rem; color: var(--primary); margin-bottom: 20px; }
         .s-card h3 { font-family: 'Orbitron', sans-serif; font-size: 1.3rem; margin-bottom: 15px; }
+        .s-card p { color: #bbb; } /* Texto más claro para tarjetas */
 
         /* --- BOTONES --- */
         .btn-main {
@@ -127,23 +138,23 @@
 <body>
 
     <header>
+        <div class="logo-svg">
+            <svg width="100%" height="100%" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M35 20L42 45H58L65 20H35Z" stroke="#00f2ff" stroke-width="2"/>
+                <path d="M30 80C30 70 35 60 45 55C50 52.5 50 45 50 45" stroke="#00f2ff" stroke-width="2"/>
+                <path d="M70 80C70 70 65 60 55 55C50 52.5 50 45 50 45" stroke="#00f2ff" stroke-width="2"/>
+                <path d="M30 80H70" stroke="#00f2ff" stroke-width="2"/>
+                <circle cx="50" cy="70" r="5" fill="#00f2ff" opacity="0.6">
+                    <animate attributeName="opacity" values="0.2;0.8;0.2" dur="2s" repeatCount="indefinite" />
+                </circle>
+                <path d="M20 85L80 85" stroke="#00f2ff" stroke-width="1" stroke-dasharray="4 2"/>
+            </svg>
+        </div>
+        
         <div class="hero-content">
-            <div class="logo-container">
-                <svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M35 20L42 45H58L65 20H35Z" stroke="#00f2ff" stroke-width="2"/>
-                    <path d="M30 80C30 70 35 60 45 55C50 52.5 50 45 50 45" stroke="#00f2ff" stroke-width="2"/>
-                    <path d="M70 80C70 70 65 60 55 55C50 52.5 50 45 50 45" stroke="#00f2ff" stroke-width="2"/>
-                    <path d="M30 80H70" stroke="#00f2ff" stroke-width="2"/>
-                    <circle cx="50" cy="70" r="5" fill="#00f2ff" opacity="0.6">
-                        <animate attributeName="opacity" values="0.2;0.8;0.2" dur="2s" repeatCount="indefinite" />
-                    </circle>
-                    <path d="M20 85L80 85" stroke="#00f2ff" stroke-width="1" stroke-dasharray="4 2"/>
-                </svg>
-            </div>
-            
             <p class="tagline">DETALLES QUE TRANSFORMAN</p>
             <h1>DEEP CLEAN LAB</h1>
-            <p style="max-width: 600px; margin: auto; color: #aaa;">Estética vehicular avanzada en Ecuador. Ciencia aplicada a la limpieza de precisión.</p>
+            <p style="max-width: 600px; margin: auto; color: #ccc;">Estética vehicular avanzada en Ecuador. Ciencia aplicada a la limpieza de precisión.</p>
             <a href="https://wa.me/593XXXXXXXXX" class="btn-main">AGENDAR SERVICIO</a>
         </div>
     </header>
@@ -152,7 +163,7 @@
         <div class="about-text">
             <h2>SOBRE <span style="color:#fff">NOSOTROS</span></h2>
             <p><strong>Deep Clean Lab</strong> redefine el concepto de limpieza automotriz. Operamos bajo estándares de laboratorio, analizando cada tipo de superficie para aplicar el tratamiento químico correcto.</p>
-            <p>Nuestra misión en Cuenca es devolverle a cada vehículo su estado de exhibición mediante procesos seguros y materiales de alta calidad.</p>
+            <p>Nuestra misión es devolverle a cada vehículo su estado de exhibición mediante procesos seguros y materiales de alta calidad.</p>
         </div>
         <div style="flex: 1; min-width: 300px; text-align: center;">
             <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?q=80&w=1000&auto=format&fit=crop" alt="Deep Clean Lab Detailing" style="width: 100%; border-radius: 4px; border: 1px solid var(--primary);">
