@@ -3,163 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deep Clean Lab | High-End Detailing</title>
+    <title>Deep Clean Lab | Detailing Avanzado</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary: #00f2ff; /* Cian eléctrico */
-            --dark: #050505;
-            --glass: rgba(255, 255, 255, 0.05);
-            --text: #e0e0e0;
+            --primary: #00f2ff;
+            --dark-bg: #0a0a0c;
+            --card-bg: #141417;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--dark);
-            color: var(--text);
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-bg);
+            color: #ffffff;
             margin: 0;
-            line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
-        /* Hero Section */
+        /* --- LOGO SVG DISEÑADO CON CÓDIGO --- */
+        .logo-container {
+            margin-bottom: 20px;
+        }
+
+        /* --- HERO SECTION --- */
         header {
             height: 100vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, #1a1a1d 0%, #0a0a0c 100%);
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
-                        url('https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=2071&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
             padding: 20px;
         }
 
-        h1 {
+        .hero-content h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: clamp(2rem, 8vw, 4.5rem);
+            font-size: clamp(2.2rem, 8vw, 4.5rem);
+            letter-spacing: 6px;
+            margin: 10px 0;
             color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            margin: 0;
+            text-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
         }
 
-        .subtitle { font-size: 1.2rem; letter-spacing: 5px; margin-bottom: 20px; color: #fff; }
+        .tagline {
+            letter-spacing: 4px;
+            color: #888;
+            font-weight: 300;
+            font-size: 0.9rem;
+        }
 
-        .btn {
+        /* --- SECCIÓN SOBRE NOSOTROS --- */
+        .about {
+            padding: 80px 10%;
+            background: #0d0d0f;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+
+        .about-text { flex: 1; min-width: 300px; }
+        .about-text h2 { font-family: 'Orbitron', sans-serif; color: var(--primary); font-size: 2rem; }
+
+        /* --- SERVICIOS (SIN BLINDAJE) --- */
+        .services {
+            padding: 80px 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .s-card {
+            background: var(--card-bg);
+            padding: 45px;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .s-card:hover {
+            border-color: var(--primary);
+            background: #1c1c21;
+            transform: translateY(-5px);
+        }
+
+        .s-card i { font-size: 2.8rem; color: var(--primary); margin-bottom: 20px; }
+        .s-card h3 { font-family: 'Orbitron', sans-serif; font-size: 1.3rem; margin-bottom: 15px; }
+
+        /* --- BOTONES --- */
+        .btn-main {
+            display: inline-block;
+            padding: 18px 45px;
             background: var(--primary);
             color: #000;
-            padding: 18px 45px;
             text-decoration: none;
-            border-radius: 4px;
-            font-weight: 700;
-            text-transform: uppercase;
-            transition: 0.3s;
-            box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
-        }
-
-        .btn:hover { box-shadow: 0 0 30px var(--primary); transform: scale(1.05); }
-
-        /* Contenedores */
-        section { padding: 100px 10%; max-width: 1200px; margin: auto; }
-        
-        .section-title {
+            font-weight: bold;
             font-family: 'Orbitron', sans-serif;
-            font-size: 2rem;
-            margin-bottom: 40px;
-            border-left: 5px solid var(--primary);
-            padding-left: 20px;
-        }
-
-        /* Estilo Empresa */
-        .company-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .service-card {
-            background: var(--glass);
-            padding: 40px;
-            border: 1px solid rgba(255,255,255,0.05);
             border-radius: 2px;
             transition: 0.3s;
+            margin-top: 30px;
         }
 
-        .service-card:hover { background: rgba(0, 242, 255, 0.05); border-color: var(--primary); }
+        .btn-main:hover {
+            box-shadow: 0 0 40px rgba(0, 242, 255, 0.6);
+            transform: scale(1.02);
+        }
 
-        .service-card i { color: var(--primary); font-size: 2.5rem; margin-bottom: 20px; }
-
-        footer { text-align: center; padding: 60px; background: #020202; border-top: 1px solid var(--glass); }
-
-        @media (max-width: 768px) { .company-grid { grid-template-columns: 1fr; } }
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: #050505;
+            border-top: 1px solid #1a1a1a;
+            font-size: 0.8rem;
+            color: #444;
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <p class="subtitle">ESTÉTICA AUTOMOTRIZ AVANZADA</p>
-        <h1>DEEP CLEAN LAB</h1>
-        <p style="max-width: 700px; margin: 30px 0 50px 0; font-size: 1.1rem; color: #aaa;">
-            Especialistas en la restauración y protección de superficies vehiculares. 
-            Combinamos tecnología química y precisión artesanal para resultados de exhibición.
-        </p>
-        <a href="https://wa.me/TUNUMERO" class="btn">Solicitar Diagnóstico</a>
+        <div class="hero-content">
+            <div class="logo-container">
+                <svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M35 20L42 45H58L65 20H35Z" stroke="#00f2ff" stroke-width="2"/>
+                    <path d="M30 80C30 70 35 60 45 55C50 52.5 50 45 50 45" stroke="#00f2ff" stroke-width="2"/>
+                    <path d="M70 80C70 70 65 60 55 55C50 52.5 50 45 50 45" stroke="#00f2ff" stroke-width="2"/>
+                    <path d="M30 80H70" stroke="#00f2ff" stroke-width="2"/>
+                    <circle cx="50" cy="70" r="5" fill="#00f2ff" opacity="0.6">
+                        <animate attributeName="opacity" values="0.2;0.8;0.2" dur="2s" repeatCount="indefinite" />
+                    </circle>
+                    <path d="M20 85L80 85" stroke="#00f2ff" stroke-width="1" stroke-dasharray="4 2"/>
+                </svg>
+            </div>
+            
+            <p class="tagline">DETALLES QUE TRANSFORMAN</p>
+            <h1>DEEP CLEAN LAB</h1>
+            <p style="max-width: 600px; margin: auto; color: #aaa;">Estética vehicular avanzada en Ecuador. Ciencia aplicada a la limpieza de precisión.</p>
+            <a href="https://wa.me/593XXXXXXXXX" class="btn-main">AGENDAR SERVICIO</a>
+        </div>
     </header>
 
-    <section>
-        <div class="company-grid">
-            <div>
-                <h2 class="section-title">Sobre <span style="color:var(--primary)">Nosotros</span></h2>
-                <p>En <strong>Deep Clean Lab</strong>, operamos bajo los más altos estándares de la industria del Detailing. Nuestra filosofía se centra en la preservación de los materiales originales, utilizando procesos que garantizan un acabado superior sin comprometer la integridad del vehículo.</p>
-                <p>No somos un lavadero convencional; somos un laboratorio dedicado a la perfección estética y la protección a largo plazo.</p>
-            </div>
-            <div style="background: var(--primary); height: 300px; border-radius: 8px; background-image: url('https://images.unsplash.com/photo-1599256621730-535171e28e50?q=80&w=1000&auto=format&fit=crop'); background-size: cover;"></div>
+    <section class="about">
+        <div class="about-text">
+            <h2>SOBRE <span style="color:#fff">NOSOTROS</span></h2>
+            <p><strong>Deep Clean Lab</strong> redefine el concepto de limpieza automotriz. Operamos bajo estándares de laboratorio, analizando cada tipo de superficie para aplicar el tratamiento químico correcto.</p>
+            <p>Nuestra misión en Cuenca es devolverle a cada vehículo su estado de exhibición mediante procesos seguros y materiales de alta calidad.</p>
+        </div>
+        <div style="flex: 1; min-width: 300px; text-align: center;">
+            <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?q=80&w=1000&auto=format&fit=crop" alt="Deep Clean Lab Detailing" style="width: 100%; border-radius: 4px; border: 1px solid var(--primary);">
         </div>
     </section>
 
-    <section style="background: #080808; max-width: 100%;">
-        <div style="max-width: 1200px; margin: auto;">
-            <h2 class="section-title">Nuestros <span style="color:var(--primary)">Servicios</span></h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-microscope"></i>
-                    <h3>Lavado Detallado</h3>
-                    <p>Limpieza técnica profunda en exteriores, interiores y compartimento de motor utilizando agua desmineralizada y PH neutro.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-gem"></i>
-                    <h3>Corrección de Barniz</h3>
-                    <p>Proceso de pulido técnico multietapa para eliminar imperfecciones, devolviendo la profundidad y el brillo original.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-shield-virus"></i>
-                    <h3>Blindaje Cerámico</h3>
-                    <p>Protección hidrofóbica avanzada contra agentes contaminantes, rayos UV y químicos, con durabilidad certificada.</p>
-                </div>
-            </div>
+    <section class="services">
+        <div class="s-card">
+            <i class="fas fa-soap"></i>
+            <h3>Lavado Técnico</h3>
+            <p>Limpieza profunda multietapa utilizando agua desmineralizada y espumas de pH neutro para evitar rayones.</p>
         </div>
-    </section>
-
-    <section style="text-align: center;">
-        <h2 class="section-title" style="border: none; padding: 0;">¿Desea elevar el estándar de su vehículo?</h2>
-        <p style="margin-bottom: 40px; color: #888;">Agende una inspección técnica con nuestros especialistas.</p>
-        <a href="https://wa.me/TUNUMERO" class="btn">Contactar con el Laboratorio</a>
+        <div class="s-card">
+            <i class="fas fa-magic"></i>
+            <h3>Detallado de Interiores</h3>
+            <p>Desinfección y nutrición de plásticos, cueros y textiles. Restauramos el aroma y tacto original de su cabina.</p>
+        </div>
     </section>
 
     <footer>
-        <p style="color: var(--primary); font-family: 'Orbitron';">DEEP CLEAN LAB</p>
-        <p>&copy; 2024 - Todos los derechos reservados.</p>
+        <p style="font-family: 'Orbitron'; color: var(--primary); letter-spacing: 2px;">DEEP CLEAN LAB</p>
+        <p>Ecuador • Servicio Especializado de Detailing</p>
     </footer>
 
 </body>
