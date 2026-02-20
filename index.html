@@ -22,28 +22,24 @@
             scroll-behavior: smooth;
         }
 
-        /* --- LOGO SVG INTEGRADO EN EL HEADER --- */
-        .logo-svg {
-            position: absolute; /* Para colocarlo arriba a la izquierda */
-            top: 30px;
-            left: 30px;
-            width: 80px; /* Tamaño del logo */
-            height: 80px;
-        }
-
         /* --- HERO SECTION CON IMAGEN DE FONDO --- */
         header {
             height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
             padding: 20px;
-            /* IMAGEN DE FONDO APLICADA AQUÍ */
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+            /* AQUÍ ESTÁ LA IMAGEN QUE MENCIONASTE */
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
                         url('https://images.unsplash.com/photo-1582239414217-0f9c2d768140?q=80&w=2070&auto=format&fit=crop') no-repeat center center;
             background-size: cover;
-            position: relative; /* Necesario para posicionar el logo SVG */
+            position: relative;
+        }
+
+        .logo-top {
+            margin-bottom: 20px;
         }
 
         .hero-content h1 {
@@ -56,11 +52,12 @@
         }
 
         .tagline {
-            letter-spacing: 4px;
-            color: #eee; /* Más claro para verse sobre la imagen */
+            letter-spacing: 5px;
+            color: #fff;
             font-weight: 300;
             font-size: 0.9rem;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+            opacity: 0.9;
         }
 
         /* --- SECCIÓN SOBRE NOSOTROS --- */
@@ -75,9 +72,8 @@
 
         .about-text { flex: 1; min-width: 300px; }
         .about-text h2 { font-family: 'Orbitron', sans-serif; color: var(--primary); font-size: 2rem; }
-        .about-text p { color: #ccc; } /* Texto más claro para esta sección */
 
-        /* --- SERVICIOS (SIN BLINDAJE) --- */
+        /* --- SERVICIOS --- */
         .services {
             padding: 80px 5%;
             display: grid;
@@ -98,15 +94,13 @@
 
         .s-card:hover {
             border-color: var(--primary);
-            background: #1c1c21;
             transform: translateY(-5px);
         }
 
         .s-card i { font-size: 2.8rem; color: var(--primary); margin-bottom: 20px; }
-        .s-card h3 { font-family: 'Orbitron', sans-serif; font-size: 1.3rem; margin-bottom: 15px; }
-        .s-card p { color: #bbb; } /* Texto más claro para tarjetas */
+        .s-card h3 { font-family: 'Orbitron', sans-serif; margin-bottom: 15px; }
 
-        /* --- BOTONES --- */
+        /* --- BOTÓN WHATSAPP --- */
         .btn-main {
             display: inline-block;
             padding: 18px 45px;
@@ -122,7 +116,7 @@
 
         .btn-main:hover {
             box-shadow: 0 0 40px rgba(0, 242, 255, 0.6);
-            transform: scale(1.02);
+            transform: scale(1.05);
         }
 
         footer {
@@ -131,15 +125,15 @@
             background: #050505;
             border-top: 1px solid #1a1a1a;
             font-size: 0.8rem;
-            color: #444;
+            color: #666;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-svg">
-            <svg width="100%" height="100%" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="logo-top">
+            <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M35 20L42 45H58L65 20H35Z" stroke="#00f2ff" stroke-width="2"/>
                 <path d="M30 80C30 70 35 60 45 55C50 52.5 50 45 50 45" stroke="#00f2ff" stroke-width="2"/>
                 <path d="M70 80C70 70 65 60 55 55C50 52.5 50 45 50 45" stroke="#00f2ff" stroke-width="2"/>
@@ -147,26 +141,24 @@
                 <circle cx="50" cy="70" r="5" fill="#00f2ff" opacity="0.6">
                     <animate attributeName="opacity" values="0.2;0.8;0.2" dur="2s" repeatCount="indefinite" />
                 </circle>
-                <path d="M20 85L80 85" stroke="#00f2ff" stroke-width="1" stroke-dasharray="4 2"/>
             </svg>
         </div>
         
         <div class="hero-content">
-            <p class="tagline">DETALLES QUE TRANSFORMAN</p>
+            <p class="tagline">CIENCIA • PASIÓN • PERFECCIÓN</p>
             <h1>DEEP CLEAN LAB</h1>
-            <p style="max-width: 600px; margin: auto; color: #ccc;">Estética vehicular avanzada en Ecuador. Ciencia aplicada a la limpieza de precisión.</p>
+            <p style="max-width: 600px; margin: auto; color: #ddd; font-weight: 300;">Detallado automotriz de alta gama en Cuenca. Resultados de nivel exhibición.</p>
             <a href="https://wa.me/593XXXXXXXXX" class="btn-main">AGENDAR SERVICIO</a>
         </div>
     </header>
 
     <section class="about">
         <div class="about-text">
-            <h2>SOBRE <span style="color:#fff">NOSOTROS</span></h2>
-            <p><strong>Deep Clean Lab</strong> redefine el concepto de limpieza automotriz. Operamos bajo estándares de laboratorio, analizando cada tipo de superficie para aplicar el tratamiento químico correcto.</p>
-            <p>Nuestra misión es devolverle a cada vehículo su estado de exhibición mediante procesos seguros y materiales de alta calidad.</p>
+            <h2>SOBRE EL <span style="color:#fff">LABORATORIO</span></h2>
+            <p>En <strong>Deep Clean Lab</strong> tratamos cada vehículo con rigor científico. No solo limpiamos; preservamos la integridad de los materiales utilizando productos de pH neutro y técnicas de vanguardia.</p>
         </div>
         <div style="flex: 1; min-width: 300px; text-align: center;">
-            <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?q=80&w=1000&auto=format&fit=crop" alt="Deep Clean Lab Detailing" style="width: 100%; border-radius: 4px; border: 1px solid var(--primary);">
+            <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?q=80&w=1000" alt="Detalle" style="width: 100%; border-radius: 4px; border: 1px solid var(--primary);">
         </div>
     </section>
 
@@ -174,18 +166,18 @@
         <div class="s-card">
             <i class="fas fa-soap"></i>
             <h3>Lavado Técnico</h3>
-            <p>Limpieza profunda multietapa utilizando agua desmineralizada y espumas de pH neutro para evitar rayones.</p>
+            <p>Proceso de descontaminación profunda para un acabado impecable y seguro para el barniz.</p>
         </div>
         <div class="s-card">
-            <i class="fas fa-magic"></i>
-            <h3>Detallado de Interiores</h3>
-            <p>Desinfección y nutrición de plásticos, cueros y textiles. Restauramos el aroma y tacto original de su cabina.</p>
+            <i class="fas fa-hand-sparkles"></i>
+            <h3>Detallado Interior</h3>
+            <p>Limpieza microscópica y acondicionamiento de superficies para devolver el tacto original.</p>
         </div>
     </section>
 
     <footer>
         <p style="font-family: 'Orbitron'; color: var(--primary); letter-spacing: 2px;">DEEP CLEAN LAB</p>
-        <p>Ecuador • Servicio Especializado de Detailing</p>
+        <p>&copy; 2024 Cuenca, Ecuador</p>
     </footer>
 
 </body>
